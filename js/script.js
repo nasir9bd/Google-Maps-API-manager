@@ -1,8 +1,47 @@
 var map;
 
+var mapStyle = [
+		{
+			'stylers':[
+				{'saturation':-100},
+				{'gamma':1}
+			]
+		},
+		{
+			'elementType':'labels.text.stroke',
+			'stylers':[
+				{'visibility':'off'}
+				]
+		},
+		{
+			'featureType':'road',
+			'elementType':'geometry',
+			'stylers':[
+				{'visibility':'simplified'}
+				]
+		},
+		{
+			'featureType':'water',
+			'stylers':[
+				{'visibility':'on'},
+				{'saturation':50},
+				{'gamma':0},
+				{'hue':'#50a5d1'}
+				]
+		},
+		{
+			'featureType':'landscape',
+			'elementType':'all',
+			'stylers':[
+				{'color':'#e2e2e2'}
+				]
+		}
+	];
+
 function loadMap(){
 
 	var mapOptions = {
+
 		//default zoom
 		zoom: 11,
 		//latitude longitude for Dhaka, Bangladesh
@@ -48,7 +87,10 @@ function loadMap(){
 		overviewMapControl: true,
 		overviewMapControlOptions: {
 			opened: true
-		}
+		},
+
+		//stylize google maps
+		styles: mapStyle
 
 	};
 	var mapID = document.getElementById('map');
